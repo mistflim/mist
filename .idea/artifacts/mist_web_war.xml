@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="mist-web:war">
+    <output-path>$PROJECT_DIR$/mist-web/target</output-path>
+    <root id="archive" name="mist-web-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="mist-web:war exploded" />
+    </root>
+  </artifact>
+</component>

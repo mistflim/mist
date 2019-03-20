@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/mist.iml" filepath="$PROJECT_DIR$/.idea/mist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mist-common/mist-common.iml" filepath="$PROJECT_DIR$/mist-common/mist-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mist-dao/mist-dao.iml" filepath="$PROJECT_DIR$/mist-dao/mist-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mist-domain/mist-domain.iml" filepath="$PROJECT_DIR$/mist-domain/mist-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mist-fluent-validator/mist-fluent-validator.iml" filepath="$PROJECT_DIR$/mist-fluent-validator/mist-fluent-validator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mist-man-web/mist-man-web.iml" filepath="$PROJECT_DIR$/mist-man-web/mist-man-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mist-service/mist-service.iml" filepath="$PROJECT_DIR$/mist-service/mist-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mist-web/mist-web.iml" filepath="$PROJECT_DIR$/mist-web/mist-web.iml" />
+    </modules>
+  </component>
+</project>

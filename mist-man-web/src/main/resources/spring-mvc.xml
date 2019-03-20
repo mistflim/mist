@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:common.properties</value>
+            </list>
+        </property>
+    </bean>
+    <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
+    <context:component-scan base-package="sf.wj.web.controller" >
+        <context:include-filter type="annotation"  expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <!--自动注册RequestMappingHandlerMapping与RequestMappingHandlerAdapter两个Bean,
+    这是Spring MVC为@Controller分发请求所必需的，并且提供了数据绑定支持，@NumberFormatannotation支持，@DateTimeFormat支持,@Valid支持读写XML的支持（JAXB）和读写JSON的支持（默认Jackson）等功能。-->
+    <mvc:annotation-driven/>
+    <!--拦截器-->
+    <!--处理静态的servlet请求，不进入拦截器-->
+    <mvc:default-servlet-handler default-servlet-name="default"/>
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**"/>-->
+            <!--<mvc:exclude-mapping path="/static/**"/>-->
+            <!--<mvc:exclude-mapping path="/js/**"/>-->
+            <!--<mvc:exclude-mapping path="/css/**"/>-->
+            <!--<mvc:exclude-mapping path="/image/**"/>-->
+            <!--<mvc:exclude-mapping path="/fonts/**"/>-->
+            <!--<mvc:exclude-mapping path="/**/*.html"/>-->
+            <!--<mvc:exclude-mapping path="/**/*.ico"/>-->
+        <!--</mvc:interceptor>-->
+        <!--&lt;!&ndash; csrf &ndash;&gt;-->
+        <!--<bean class="sf.wj.interceptor.ComInterceptor"/>-->
+    <!--</mvc:interceptors>-->
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/plain;charset=UTF-8</value>
+                        <value>text/html;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+            <ref bean="fastJsonConverter"/>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <!--json转换-->
+    <bean id="fastJsonConverter" class="sf.wj.web.util.JsonHttpMessageConverter">
+        <property name="fastJsonConfig" ref="fast"></property>
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+                <value>application/json;charset=UTF-8</value>
+                <value>application/x-www-form-urlencoded; charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="fast" class="sf.wj.web.util.FastJsonConfigExt">
+        <property name="dateFormat" value="yyyy-MM-dd HH:mm"/>
+        <property name="charset" value="UTF-8"/>
+        <property name="features">
+            <list>
+                <value>InitStringFieldAsEmpty</value>
+                <value>OrderedField</value>
+            </list>
+        </property>
+    </bean>
+
+
+
+    <!--<mvc:annotation-driven>-->
+        <!--<mvc:message-converters register-defaults="true">-->
+            <!--<bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
+                <!--<property name="supportedMediaTypes">-->
+                    <!--<list>-->
+                        <!--<value>text/plain;charset=UTF-8</value>-->
+                        <!--<value>text/html;charset=UTF-8</value>-->
+                    <!--</list>-->
+                <!--</property>-->
+            <!--</bean>-->
+            <!--<bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">-->
+                <!--<property name="supportedMediaTypes">-->
+                    <!--<list>-->
+                        <!--<value>application/json;charset=UTF-8</value>-->
+                        <!--<value>application/x-www-form-urlencoded; charset=UTF-8</value>-->
+                    <!--</list>-->
+                <!--</property>-->
+                <!--<property name="defaultCharset" value="UTF-8"/>-->
+                <!--<property name="fastJsonConfig" ref="fastJsonConfig"/>-->
+            <!--</bean>-->
+        <!--</mvc:message-converters>-->
+    <!--</mvc:annotation-driven>-->
+    <!--<bean id="fastJsonConfig" class="com.alibaba.fastjson.support.config.FastJsonConfig">-->
+        <!--<property name="charset" value="UTF-8"/>-->
+        <!--<property name="dateFormat" value="yyyy-MM-dd HH:mm:ss"/>-->
+        <!--<property name="serializerFeatures">-->
+            <!--<list>-->
+                <!--<value>WriteMapNullValue</value>-->
+                <!--<value>QuoteFieldNames</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <bean id="urlBasedViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <!-- webroot到某一指定的文件夹的路径 -->
+        <property name="prefix" value="/WEB-INF/"/>
+        <!-- 视图名称的后缀 -->
+        <property name="suffix" value=".html"/>
+        <property name="viewClass" value="org.springframework.web.servlet.view.InternalResourceView"/>
+    </bean>
+</beans>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mist-common" />
+        <module name="mist-dao" />
+        <module name="mist-domain" />
+        <module name="mist-fluent-validator" />
+        <module name="mist-man-web" />
+        <module name="mist-service" />
+        <module name="mist-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mist" target="1.8" />
+      <module name="mist-common" target="1.8" />
+      <module name="mist-dao" target="1.8" />
+      <module name="mist-domain" target="1.8" />
+      <module name="mist-fluent-validator" target="1.8" />
+      <module name="mist-man-web" target="1.8" />
+      <module name="mist-service" target="1.8" />
+      <module name="mist-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
