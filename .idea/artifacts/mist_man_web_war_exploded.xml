@@ -23,6 +23,7 @@
           </element>
           <element id="file-copy" path="$MAVEN_REPOSITORY$/QRCode/QRCode/1.0-SNAPSHOT/QRCode-1.0-20180622.083714-1.jar" output-file-name="QRCode-1.0-SNAPSHOT.jar" />
           <element id="library" level="project" name="Maven: io.leopard:javahost:0.9.6" />
+          <element id="library" level="project" name="Maven: org.bouncycastle:bcprov-jdk15:1.43" />
           <element id="archive" name="mist-domain-1.0-SNAPSHOT.jar">
             <element id="module-output" name="mist-domain" />
           </element>

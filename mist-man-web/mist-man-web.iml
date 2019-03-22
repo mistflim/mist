@@ -44,6 +44,7 @@
     <orderEntry type="module" module-name="mist-common" />
     <orderEntry type="library" name="Maven: QRCode:QRCode:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: io.leopard:javahost:0.9.6" level="project" />
+    <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk15:1.43" level="project" />
     <orderEntry type="module" module-name="mist-domain" />
     <orderEntry type="module" module-name="mist-dao" />
     <orderEntry type="module" module-name="mist-service" />

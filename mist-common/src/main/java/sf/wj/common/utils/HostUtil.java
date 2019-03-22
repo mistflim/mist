@@ -17,7 +17,7 @@ public class HostUtil {
     @PostConstruct
     public void excute() {
         System.out.println("---------------------HostUtil------------------------");
-        properties.setProperty("wj.jd.com","127.0.0.1");
+        properties.setProperty("baidu.com","127.0.0.1");
         JavaHost.updateVirtualDns(properties);
     }
 }

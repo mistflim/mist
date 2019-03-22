@@ -35,6 +35,18 @@
             <artifactId>javahost</artifactId>
             <version>0.9.6</version>
         </dependency>
+
+        <!--AES加密需要-->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15</artifactId>
+            <version>1.43</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>20041127.091804</version>
+        </dependency>
     </dependencies>
 
 
